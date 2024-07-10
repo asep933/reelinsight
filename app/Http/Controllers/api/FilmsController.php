@@ -16,7 +16,7 @@ class FilmsController extends Controller
         $validator = Validator::make($request->all(), [
             'title'      => 'required|string|max:255',
             'description'     => 'required',
-            'image_thumbnail'  => 'required|image|mimes:jpg,jpeg,png,gif|max:2048'
+            'image_thumbnail'  => 'required|image|mimes:jpg,jpeg,png,gif'
         ]);
 
         if($validator->fails()){
@@ -43,10 +43,16 @@ class FilmsController extends Controller
 
     public function index(): JsonResponse
     {
-        $films = Film::all();
+        $films = Film::paginate(10);
 
         return response()->json([
-            "data" => $films
+            "data" => $films->loadMissing("unggulan:film_id"),
+            "first_page" => $films->onFirstPage(),
+            "last_page" => $films->lastPage(),
+            "total" => $films->total(),
+            "prev" => $films->previousPageUrl(),
+            "next" => $films->nextPageUrl(),
+            "current_page" => $films->currentPage()
         ]);
     }
 
@@ -119,5 +125,17 @@ class FilmsController extends Controller
         return response()->json([
             'message' => "successfuly deleted"
         ], 200);
+    }
+
+    public function search(string $slug): JsonResponse
+    {
+        $result = Film::where("title", "LIKE", "%$slug%")->paginate(15);
+
+        return response()->json([
+            "data" => $result->loadMissing("unggulan:film_id"),
+            "curent_page" => $result->currentPage(),
+            "first_page" => $result->onFirstPage(),
+            "last_page" => $result->lastPage()
+        ]);
     }
 }
