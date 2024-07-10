@@ -7,5 +7,5 @@ clone atau download repositori ini
 -   cd /ReelInsight
 -   php artisan migrate:fresh --seed
 
--   cd /breeze-next
+-   cd /ReelInsight/breeze-next
 -   npm run dev
