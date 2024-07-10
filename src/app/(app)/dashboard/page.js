@@ -1,22 +1,20 @@
-import Header from '@/app/(app)/Header'
+import Hero from '@/components/Hero'
+import FilmList from '@/components/FilmList'
+import FilmListSec from '@/components/FilmListSec'
 
 export const metadata = {
-    title: 'Laravel - Dashboard',
+    title: 'ReelInsight - Dashboard',
 }
 
 const Dashboard = () => {
     return (
         <>
-            <Header title="Dashboard" />
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 bg-white border-b border-gray-200">
-                            You are logged in!
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Hero />
+
+            <section className="pt-8">
+                <FilmList />
+                <FilmListSec />
+            </section>
         </>
     )
 }

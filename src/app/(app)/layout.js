@@ -1,7 +1,6 @@
-'use client'
+"use client"
 
 import { useAuth } from '@/hooks/auth'
-import Navigation from '@/app/(app)/Navigation'
 import Loading from '@/app/(app)/Loading'
 
 const AppLayout = ({ children }) => {
@@ -12,11 +11,9 @@ const AppLayout = ({ children }) => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-100">
-            <Navigation user={user} />
-
+        <>
             <main>{children}</main>
-        </div>
+        </>
     )
 }
 

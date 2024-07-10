@@ -48,6 +48,7 @@ const Login = () => {
         <>
             <AuthSessionStatus className="mb-4" status={status} />
             <form onSubmit={submitForm}>
+                <h1 className="text-2xl font-extrabold py-5">Sign in</h1>
                 {/* Email Address */}
                 <div>
                     <Label htmlFor="email">Email</Label>
@@ -79,10 +80,7 @@ const Login = () => {
                         autoComplete="current-password"
                     />
 
-                    <InputError
-                        messages={errors.password}
-                        className="mt-2"
-                    />
+                    <InputError messages={errors.password} className="mt-2" />
                 </div>
 
                 {/* Remember Me */}
@@ -106,14 +104,16 @@ const Login = () => {
                     </label>
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
+                <div className="flex items-center flex-col mt-8 gap-4">
+                    <Button className="ml-3 w-full text-center flex justify-center bg-fourth">
+                        Sign in
+                    </Button>
+
                     <Link
                         href="/forgot-password"
-                        className="underline text-sm text-gray-600 hover:text-gray-900">
-                        Forgot your password?
+                        className="font-bold text-sm text-primary hover:text-gray-900">
+                        Forgot Password?
                     </Link>
-
-                    <Button className="ml-3">Login</Button>
                 </div>
             </form>
         </>
