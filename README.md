@@ -1,15 +1,16 @@
 ## ReelInsight
 
-reelinsight adalah sebuah aplikasi website dimana dapat menggungah berbagai macam film.
+reelinsight adalah sebuah aplikasi website dimana dapat menggungah berbagai macam film,
+dibuat menggunakan laravel dan next js
 
 ## Installation
 
-cara menjalankan aplikasi dalam lokal persyratan
+cara menjalankan aplikasi dalam lokal persayratan
 
 - node
 - composer
 
-pertama clone repositori ini dan jalanka diterminal
+pertama clone repositori ini dan jalankan diterminal
 
 - git clone https://github.com/asep933/reelinsight.git
 - cd /reelinsight
