@@ -5,15 +5,17 @@ import Play from '/public/play.svg'
 const HeroMain = ({ title, description, imagePath, imageTitle }) => {
     return (
         <div className="flex flex-row h-auto w-full items-center justify-between bg-primary">
-            <div className="w-1/3 lg:text-base text-xs px-8 text-white flex flex-col lg:gap-5 gap-2">
-                <h1 className="capitalize lg:text-4xl text-lg font-bold">
+            <div className="w-1/3 lg:text-base text-xs lg:py-0 py-6 px-8 text-white flex flex-col lg:gap-5 gap-2">
+                <h1 className="capitalize lg:text-4xl text-sm font-bold">
                     {title}
                 </h1>
-                <p>{description}</p>
+                <p className="text-xs lg:text-base">{description}</p>
                 <div>
-                    <Button className="bg-accent">
-                        <Image src={Play} alt="play icon" width={20} />
-                        Play
+                    <Button className="bg-accent lg:text-lg text-sm w-max">
+                        <div className="flex flex-row items-center">
+                            <Image src={Play} alt="play icon" width={20} />
+                            <p>Play</p>
+                        </div>
                     </Button>
                 </div>
             </div>

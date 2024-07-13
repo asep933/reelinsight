@@ -46,7 +46,7 @@ const Hero = () => {
     }, [])
 
     return (
-        <div className="w-full h-auto text-secondary lg:pt-0 pt-24">
+        <div className="w-full h-auto text-secondary lg:pt-0 pt-20">
             {loading === true && <LoadingComponent />}
 
             {loading === false && (

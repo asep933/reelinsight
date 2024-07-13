@@ -16,7 +16,6 @@ const CarouselComponent = ({ children }) => {
                 breakpoints={{
                     350: {
                         slidesPerView: 2,
-                        navigation: false,
                     },
                     720: {
                         slidesPerView: 4,
