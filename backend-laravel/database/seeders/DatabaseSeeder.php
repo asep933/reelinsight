@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
                 'title' => 'the superman',
                 'description' => 'the superman is popular movie in the world',
                 'image_name' => '1718374983_generate-a-detailed-studio-ghibli-inspired-portrait-featuring-the-subject-superman-ensure-that-the--192245958.png',
-                'image_thumbnail' => '/storage/image/1718374983_generate-a-detailed-studio-ghibli-inspired-portrait-featuring-the-subject-superman-ensure-that-the--192245958.png'
+                'image_thumbnail' => '/storage/image/bg-superman.png'
             ]);
         Film::create([
             'title' => 'the medical',
@@ -70,7 +70,7 @@ class DatabaseSeeder extends Seeder
                 'title' => 'the superman',
                 'description' => 'the superman is popular movie in the world',
                 'image_name' => '1718374983_generate-a-detailed-studio-ghibli-inspired-portrait-featuring-the-subject-superman-ensure-that-the--192245958.png',
-                'image_thumbnail' => '/storage/image/1718374983_generate-a-detailed-studio-ghibli-inspired-portrait-featuring-the-subject-superman-ensure-that-the--192245958.png'
+                'image_thumbnail' => '/storage/image/bg-superman.png'
             ]);
         }
 
