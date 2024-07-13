@@ -23,16 +23,22 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Film::create([
+            'title' => 'the superman',
+            'description' => 'the superman is popular movie in the world',
+            'image_name' => 'superman.png',
+            'image_thumbnail' => '/storage/image/superman.png'
+        ]);
+        Film::create([
             'title' => 'the boy',
             'description' => 'the president is popular movie in the world',
             'image_name' => 'boy.png',
-            'image_thumbnail' => '/storage/image/1718309067_image.jpeg'
+            'image_thumbnail' => '/storage/image/boy.png'
         ]);
         Film::create([
             'title' => 'the dracula',
             'description' => 'the dracula is popular movie in the world',
-            'image_name' => 'dracula.png',
-            'image_thumbnail' => '/storage/image/dracula.png'
+            'image_name' => 'dracula.jpg',
+            'image_thumbnail' => '/storage/image/dracula.jpg'
         ]);
         Film::create([
             'title' => 'the president',
@@ -51,12 +57,6 @@ class DatabaseSeeder extends Seeder
             'description' => 'the ninja is popular movie in the world',
             'image_name' => 'ninja.png',
             'image_thumbnail' => '/storage/image/ninja.png'
-        ]);
-        Film::create([
-            'title' => 'the superman',
-            'description' => 'the superman is popular movie in the world',
-            'image_name' => 'superman.png',
-            'image_thumbnail' => '/storage/image/superman.png'
         ]);
         Film::create([
             'title' => 'the village',
