@@ -12,7 +12,7 @@ const DeleteButton = ({ id, token, setData }) => {
             try {
                 if (isFetch === true) {
                     await deleteFilm(id, token)
-                    setData(data => data?.filter(film => film.id !== id))
+                    setData(datas => datas.data.filter(film => film.id !== id))
                     alert('success deleted')
                 } else {
                     return

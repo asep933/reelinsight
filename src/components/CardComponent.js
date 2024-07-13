@@ -10,7 +10,7 @@ const CardComponent = ({ imagePath, title, description, isUnggulan }) => {
                     priority
                     onError={e => console.error(e.target.id)}
                     src={`${imagePath}`}
-                    alt={`${imageTitle}`}
+                    alt={`${title}`}
                     width={500}
                     height={300}
                 />

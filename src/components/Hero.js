@@ -56,7 +56,7 @@ const Hero = () => {
                     {film.map(datas => (
                         <div key={datas.id}>
                             <HeroMain
-                                imagePath={`${process.env.NEXT_PUBLIC_BACKEND_URL}${datas.image_thumbnail}`}
+                                imagePath={`${datas.image_thumbnail}`}
                                 imageTitle={datas.title}
                                 title={datas.title}
                                 description={datas.description}
