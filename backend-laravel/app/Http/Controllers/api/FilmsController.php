@@ -122,6 +122,14 @@ class FilmsController extends Controller
             'description' => $request['description']
         ]);
 
+        switch($request->has('unggulan')) {
+            case true:
+               $film->unggulan()->create([
+                'film_id' => $film->id
+               ]);
+               break;
+        }
+
         return response()->json([
             'message'  => 'successfuly updated'
         ]);
