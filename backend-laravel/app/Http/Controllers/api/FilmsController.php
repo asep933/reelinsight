@@ -16,7 +16,7 @@ class FilmsController extends Controller
         $validator = Validator::make($request->all(), [
             'title'      => 'required|string|max:255',
             'description'     => 'required',
-            'image_thumbnail'  => 'required|image|mimes:jpg,jpeg,png,gif'
+            'image_thumbnail'  => 'required|image|mimes:jpg,jpeg,png,gif',
         ]);
 
         if($validator->fails()){
@@ -31,12 +31,21 @@ class FilmsController extends Controller
 
         $url = Storage::url('public/image/'.$imageName);
 
-        Film::create([
+        $result = Film::create([
             'title' => $request['title'],
             'description' => $request['description'],
             'image_name' => $imageName,
             'image_thumbnail' => $url
         ]);
+
+        switch($request->unggulan) {
+            case 'true':
+                $film = new Film;
+                $film->unggulan()->sync($result);
+                break;
+            default: 
+                null;
+        }
 
         return response()->json(["message" => "successfully store"], 201);
     }
