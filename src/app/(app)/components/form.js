@@ -12,6 +12,7 @@ const Form = ({ token }) => {
         title: '',
         description: '',
         image_thumbnail: '',
+        unggulan: null,
     })
 
     const router = useRouter()
@@ -74,6 +75,20 @@ const Form = ({ token }) => {
                                 required
                             />
                         </div>
+
+                        <label className="flex flex-row gap-3 items-center my-3 w-fit">
+                            <input
+                                onChange={e =>
+                                    setInput({
+                                        ...input,
+                                        unggulan: e.target.checked,
+                                    })
+                                }
+                                name="checkbox"
+                                type="checkbox"
+                            />
+                            Top Film
+                        </label>
 
                         <input
                             name="image_thumbnail"

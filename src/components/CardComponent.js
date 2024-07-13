@@ -11,6 +11,8 @@ const CardComponent = ({ imagePath, title, description, isUnggulan }) => {
                     onError={e => console.error(e.target.id)}
                     src={`${imagePath}`}
                     alt={`${title}`}
+                    className="bg-cover hover:scale-110 transition duration-300 
+                    ease-in-out h-36 overflow-hidden"
                     width={500}
                     height={300}
                 />
