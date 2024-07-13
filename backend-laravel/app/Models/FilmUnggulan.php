@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Film;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class FilmUnggulan extends Model
 {
@@ -15,8 +15,8 @@ class FilmUnggulan extends Model
         "film_id"
     ];
 
-    public function film(): HasMany
+    public function film(): BelongsTo
     {
-        return $this->hasMany(Film::class);
+        return $this->belongsTo(Film::class, 'film_id', 'id');
     }
 }

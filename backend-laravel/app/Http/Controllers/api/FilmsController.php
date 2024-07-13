@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Film;
+use App\Models\FilmUnggulan;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -13,41 +14,41 @@ class FilmsController extends Controller
 {
     public function store(Request $request): JsonResponse
     {
-        $validator = Validator::make($request->all(), [
-            'title'      => 'required|string|max:255',
-            'description'     => 'required',
-            'image_thumbnail'  => 'required|image|mimes:jpg,jpeg,png,gif',
-        ]);
+            $validator = Validator::make($request->all(), [
+                'title'      => 'required|string|max:255',
+                'description'     => 'required',
+                'image_thumbnail'  => 'required|image|mimes:jpg,jpeg,png,gif',
+            ]);
+    
+            if($validator->fails()){
+                return response()->json([
+                    "message" => $validator->errors()
+                ], 400);
+            }
+    
+            $image = $request->file('image_thumbnail');
+            $imageName = time().'_'.$image->getClientOriginalName();
+            $image->storeAs('public/image', $imageName);
+    
+            $url = Storage::url('public/image/'.$imageName);
 
-        if($validator->fails()){
-            return response()->json([
-                "message" => $validator->errors()
-            ], 400);
-        }
+            $film = Film::create([
+                'title' => $request['title'],
+                'description' => $request['description'],
+                'image_name' => $imageName,
+                'image_thumbnail' => $url
+            ]);
 
-        $image = $request->file('image_thumbnail');
-        $imageName = time().'_'.$image->getClientOriginalName();
-        $image->storeAs('public/image', $imageName);
-
-        $url = Storage::url('public/image/'.$imageName);
-
-        $result = Film::create([
-            'title' => $request['title'],
-            'description' => $request['description'],
-            'image_name' => $imageName,
-            'image_thumbnail' => $url
-        ]);
-
-        switch($request->unggulan) {
-            case 'true':
-                $film = new Film;
-                $film->unggulan()->sync($result);
-                break;
-            default: 
-                null;
-        }
-
-        return response()->json(["message" => "successfully store"], 201);
+            switch($request->has('unggulan')) {
+                case true:
+                   $film->unggulan()->create([
+                    'film_id' => $film->id
+                   ]);
+                   break;
+            }
+    
+            return response()->json(["message" => "successfully store"], 201);
+        
     }
 
     public function index(): JsonResponse
@@ -135,7 +136,6 @@ class FilmsController extends Controller
             'message' => "successfuly deleted"
         ], 200);
     }
-
     public function search(string $slug): JsonResponse
     {
         $result = Film::where("title", "LIKE", "%$slug%")->paginate(15);
