@@ -5,10 +5,12 @@ const Card = ({ imagePath, imageTitle, isUnggulan }) => {
         <div className={`relative h-44 overflow-hidden`}>
             <div className="absolute bottom-0 h-full w-full from-secondary bg-gradient-to-t"></div>
             <Image
+                priority
+                onError={e => console.error(e.target.id)}
                 src={`${imagePath}`}
-                alt={imageTitle}
-                width={300}
-                height={200}
+                alt={`${imageTitle}`}
+                width={500}
+                height={300}
             />
             <div className="capitalize lg:text-base text-sm absolute bottom-10 left-4 z-10 text-white">
                 <p>{imageTitle}</p>

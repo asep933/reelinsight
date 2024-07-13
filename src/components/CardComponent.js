@@ -7,12 +7,12 @@ const CardComponent = ({ imagePath, title, description, isUnggulan }) => {
         rounded-md">
             <figure className="overflow-hidden relative">
                 <Image
-                    className="bg-cover hover:scale-110 transition 
-                    duration-300 ease-in-out h-40"
-                    src={imagePath}
-                    alt={title}
+                    priority
+                    onError={e => console.error(e.target.id)}
+                    src={`${imagePath}`}
+                    alt={`${imageTitle}`}
                     width={500}
-                    height={500}
+                    height={300}
                 />
                 <p
                     className="absolute bottom-2 left-2 bg-accent 

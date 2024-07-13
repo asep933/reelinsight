@@ -21,9 +21,16 @@ const HeroMain = ({ title, description, imagePath, imageTitle }) => {
             <figure className="lg:h-screen h-1/2 w-2/3">
                 <div className="absolute w-1/3 h-screen from-primary bg-gradient-to-r"></div>
                 <Image
+                    // priority
+                    // fill={true}
+                    // style={{
+                    //     width: '100%',
+                    //     height: '100%',
+                    //     backgroundSize: 'cover',
+                    // }}
                     className="bg-cover bg-no-repeat h-full w-full"
                     src={`${imagePath}`}
-                    alt={imageTitle}
+                    alt={`${imageTitle}`}
                     width={500}
                     height={500}
                 />

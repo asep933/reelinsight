@@ -26,7 +26,6 @@ const CarouselComponent = ({ children }) => {
                     },
                 }}
                 navigation={true}
-                loop={true}
                 scrollbar={{ draggable: true }}>
                 {children.map((child, index) => (
                     <SwiperSlide className="swiper-slide" key={index}>
