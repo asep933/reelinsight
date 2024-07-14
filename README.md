@@ -5,7 +5,7 @@ dibuat menggunakan laravel dan next js
 
 ## Installation
 
-cara menjalankan aplikasi dalam lokal persayratan
+cara menjalankan aplikasi dalam lokal persyaratan
 
 - node
 - composer
@@ -17,7 +17,7 @@ pertama clone repositori ini dan jalankan diterminal
 - git submodule init
 - git submodule update
 
-aktifkan serve apache dan mysql di laragon atau xampp
+aktifkan service apache dan mysql di laragon atau xampp
 
 running backend
 
@@ -25,6 +25,7 @@ running backend
 - .env.example ke .env
 - composer install
 - composer dump-autoload
+- php artisan storage:link
 - php artisan migrate:fresh --seed
 - php artisan serve
 - localhost:8000
@@ -36,3 +37,5 @@ running frontend
 - npm install
 - npm run dev
 - localhost:3000
+
+sekarang anda bisa membuka website reelinsight di localhost:3000
