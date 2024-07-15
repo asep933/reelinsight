@@ -9,6 +9,7 @@ cara menjalankan aplikasi dalam lokal persyaratan
 
 - node
 - composer
+- laragon/xampp
 
 pertama clone repositori ini dan jalankan diterminal
 
