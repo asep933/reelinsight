@@ -25,6 +25,7 @@ running backend
 - cd reelinsight/backend-laravel
 - .env.example ke .env
 - composer install
+- php artisan key:generate
 - composer dump-autoload
 - php artisan storage:link
 - php artisan migrate:fresh --seed
